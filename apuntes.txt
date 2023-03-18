@@ -1,0 +1,41 @@
+Node js = Entorno de ejecución de javascript orientado a eventos asíncronos
+
+Comentar Y Descomentar Codigo en bloque
+ctrl + k + c (comentar)
+ctrl + k + u (descomentar)
+
+Archivo package.json
+npm init --yes
+
+Arquitectura Cliente-servidor
+-Modelo en el cual el servidor envia recursos al dispositivo que los solicita(Cliente).
+
+CRUD = Operaciones básicas que se pueden realizar (Create,Read,Update,Delete)
+
+Express
+npm install express --save
+Codigo:
+    const express = require('express');
+    const app = express();
+
+    app.get('/',(req,res)=>{
+        res.send('Hola Mundo')
+    })
+
+    app.listen(3000,()=>{
+        console.log('Servidor en puerto 3000');
+    })
+
+Nodemon (Reinicia el servidor a cada cambio)
+npm i nodemon --save-dev (Instalacion para desarrollo)
+npx nodemon index.js (Lanza el servidor)
+
+Morgan (Nos ofrece Middleware creados por otros usuarios)
+npm i morgan
+
+ejs (Motores de plantillas)
+npm install ejs
+
+body-parser (hace que el servidor de express pueda entender las peticiones post)
+npm install body-parser
+
