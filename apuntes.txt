@@ -43,3 +43,22 @@ npm install ejs
 body-parser (hace que el servidor de express pueda entender las peticiones post)
 npm install body-parser
 
+fs
+npm install fs
+const fs = require('fs');
+
+//crea un servidor HTTPS
+npm install https
+const https = require('https');
+const PORT = process.env.PORT || 3000;
+https.createServer({
+  cert: fs.readFileSync('certificates/client-cert.pem'),
+  key: fs.readFileSync('certificates/client-key.pem')
+}, app).listen(PORT, () => {
+  console.log(`Servidor HTTPS iniciado en el puerto ${PORT}`);
+});
+
+/*Servidor HTTP*/
+app.listen(3000,()=>{
+  console.log('Servidor http arrancado');
+});

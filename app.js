@@ -1,9 +1,12 @@
 const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
+const https = require('https');
+const fs = require('fs');
 //const morgan = require('morgan');
 const app = express();
 const routes = require('./routes/index');
+const PORT = process.env.PORT || 3000;
 
 //Settings
 // app.set('appName','Pagina de pruebas');//variable
@@ -59,8 +62,16 @@ app.use(routes);
 //Static files
 app.use(express.static(path.join(__dirname,'public')));
 
-//Start the server
-app.listen(app.get('port'),()=>{
-    //console.log(app.get('appName'));//Setting, llama a la variable
-    console.log('Servidor en puerto',app.get('port'));
-})
+//Start the server HTTP
+// app.listen(app.get('port'),()=>{
+//     //console.log(app.get('appName'));//Setting, llama a la variable
+//     console.log('Servidor en puerto',app.get('port'));
+// })
+
+//crea un servidor HTTPS
+https.createServer({
+  cert: fs.readFileSync('Certificate/client-cert.pem'),
+  key: fs.readFileSync('Certificate/client-key.pem')
+}, app).listen(PORT, () => {
+  console.log(`Servidor HTTPS iniciado en el puerto ${PORT}`);
+});
