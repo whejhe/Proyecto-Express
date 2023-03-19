@@ -1,3 +1,7 @@
+Enlaces:
+Express - https://www.youtube.com/watch?v=794Q71KVw1k&t=579s
+Servidor Express - https://www.youtube.com/watch?v=olTgcd5VjX0&list=PLL0TiOXBeDairhQkzlawZNYnYEX45kDJP
+
 Node js = Entorno de ejecución de javascript orientado a eventos asíncronos
 
 Comentar Y Descomentar Codigo en bloque
